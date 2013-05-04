@@ -16,3 +16,10 @@
   (princ 2.1)
   (princ #\newline)
   (princ #\c))
+
+;; writing to a file
+(with-open-file (my-stream
+                 "testfile.txt"
+                 :direction :output
+                 :if-exists :supersede)
+  (princ "Hello File!" my-stream))

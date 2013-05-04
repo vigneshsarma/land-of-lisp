@@ -19,6 +19,9 @@
 
 (defparameter *location* 'living-room)
 
+(defparameter *allowed-commands*
+  '(look walk pickup inventory))
+
 (defun describe-location (location nodes)
   "Describe the given location."
   (cadr (assoc location nodes)))
@@ -80,9 +83,6 @@
     (flet ((quote-it (x)
                      (list 'quote x)))
       (cons (car cmd) (mapcar #'quote-it (cdr cmd))))))
-
-(defparameter *allowed-commands*
-  '(look walk pickup inventory))
 
 (defun game-eval (sexp)
   (if (member (car sexp) *allowed-commands*)
