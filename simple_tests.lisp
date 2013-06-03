@@ -29,3 +29,7 @@
                  :direction :output
                  :if-exists :supersede)
   (princ "Hello File!" my-stream))
+
+(define-condition foo () ()
+  (:report (lambda (condition stream)
+             (princ "Stop FOOing around, numbskull!" stream))))
